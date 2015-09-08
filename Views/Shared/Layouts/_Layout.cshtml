@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My weblog - @ViewBag.Title</title>
+    <link rel="stylesheet" href="/css/site.css">
+  </head>
+  <body>
+    <div class="site-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 center-text">
+            <h1>My weblog</h1>
+
+            <ul class="nav nav-pills nav-pills-siteheader">
+              <li><a href="~/">Blog</a></li>
+              <li><a href="~/About">About</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <form action="~/Search" class="form-inline pull-right form-search">
+            <input type="text" class="form-control" name="q">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    @RenderBody()
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="compiled_js/application/js"></script>
+  </body>
+</html>

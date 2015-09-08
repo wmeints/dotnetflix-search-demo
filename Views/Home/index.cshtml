@@ -1,0 +1,35 @@
+@model Weblog.Models.PagedResult<Weblog.Models.Post>
+<div class="container">
+  @foreach(var post in Model.Items) {
+
+    <div class="row">
+      <div class="col-xs-12">
+      <div class="panel panel-default panel-post">
+        <div class="panel-body">
+          <h2 class="panel-title">@post.Title</h2>
+          <p>
+            @post.Body
+          </p>
+          <p class="small">
+            <span>Published:</span>
+            <span class="text-muted">@post.DatePublished</span>
+            <span>Tags: </span>
+            <span class="text-muted">
+              @(String.Join(", ", @post.Tags))
+            </span>
+          </p>
+
+          <a href="~/Posts/@post.Id" class="btn btn-default">Read more</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  }
+
+  <ul class="nav nav-pills">
+    @for(int pageIndex = 0; pageIndex < (Model.Total / 30); pageIndex++) {
+        <li class="@( pageIndex == Model.PageIndex ? "active" : null)"><a href="/?page=@pageIndex">Page @(pageIndex + 1)</a></li>
+    }
+  </ul>
+
+</div>
