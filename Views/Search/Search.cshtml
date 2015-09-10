@@ -1,11 +1,46 @@
+@using System;
+@model Weblog.Models.PagedResult<Weblog.Models.IndexedPost>
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="panel panel-default panel-post">
-        <div class="panel-body">
-          <h2>Search results</h2>
-        </div>
-      </div>
+      <h2>Search results for '@ViewBag.QueryString'</h1>
     </div>
   </div>
+  
+  @foreach(var post in Model.Items) {
+
+    <div class="row">
+      <div class="col-xs-12">
+      <div class="panel panel-default panel-post">
+        <div class="panel-body">
+          <h3 class="panel-title">@post.Title</h3>
+          <p>
+            @Html.Raw(post.Body.Substring(0,Math.Min(post.Body.Length,250)))
+            @if(post.Body.Length > 250) {
+              <text>...</text>
+            }
+          </p>
+          <p class="small">
+            <span>Published:</span>
+            <span class="text-muted">@post.DatePublished</span>
+            <span>Tags: </span>
+            <span class="text-muted">
+              @(String.Join(", ", @post.Tags))
+            </span>
+          </p>
+
+          <a href="~/Posts/@post.Id" class="btn btn-default">Read more</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  }
+
+  <ul class="nav nav-pills">
+    @for(int pageIndex = 0; pageIndex < (Model.Total / 30); pageIndex++) {
+        <li class="@( pageIndex == Model.PageIndex ? "active" : null)"><a href="/Search?q=@ViewBag.QueryString&page=@pageIndex">Page @(pageIndex + 1)</a></li>
+    }
+  </ul>
 </div>
+
+

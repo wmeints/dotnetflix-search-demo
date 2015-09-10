@@ -12,9 +12,7 @@
     "MongoDB.Driver": "2.0.1",
     "Serilog": "1.5.10",
     "NEST": "1.7.1",
-    "Polly": "2.2.3",
-    "Markdown": "1.14.3",
-    "nodatime": "2.0.0-alpha20150728"
+    "Polly": "2.2.3"
   },
   "commands": {
     "kestrel": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.Kestrel --config hosting.ini",
