@@ -11,6 +11,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Dnx.Runtime;
 using Serilog;
 using Weblog.Repositories;
+using Weblog.Services;
 
 namespace weblog
 {
@@ -32,6 +33,7 @@ namespace weblog
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRepositories();
+            services.AddApplicationServices();
             services.AddMvc();
         }
 

@@ -62,14 +62,14 @@ body {
 
 .form-search {
   margin-bottom: 30px;
+}
 
-  .btn-primary {
-    background-color: #d16b19;
-    border-color: darken(#d16b19,10%);
-  }
+.btn-primary {
+  background-color: #d16b19;
+  border-color: darken(#d16b19,10%);
+}
 
-  .btn-primary:hover {
-    background-color: darken(#d16b19,10%);
-    border-color: darken(#d16b19,20%);
-  }
+.btn-primary:hover {
+  background-color: darken(#d16b19,10%);
+  border-color: darken(#d16b19,20%);
 }

@@ -34,7 +34,7 @@ namespace Weblog.Repositories
         public async Task<PagedResult<Post>> FindAll(int pageIndex) {
             var items = await _collection
                 .Find(new BsonDocument())
-                .Sort(Builders<Post>.Sort.Ascending(post => post.DatePublished))
+                .Sort(Builders<Post>.Sort.Descending(post => post.DatePublished))
                 .Skip(pageIndex * 30)
                 .Limit(30)
                 .ToListAsync();
@@ -50,6 +50,16 @@ namespace Weblog.Repositories
                 PageSize = 30,
                 PageIndex = pageIndex,
             };
+        }
+
+        public async Task<Post> InsertAsync(Post newPost)
+        {
+            newPost.Id = new ObjectId();
+            newPost.DatePublished = DateTime.UtcNow;
+
+            await _collection.InsertOneAsync(newPost);
+
+            return newPost;
         }
     }
 }

@@ -1,11 +1,16 @@
+@using MarkdownSharp
 @model Weblog.Models.Post
+@{
+  var mark = new Markdown();
+  var bodyText = mark.Transform(Model.Body);
+}
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-default panel-post">
         <div class="panel-body">
           <h2>@Model.Title</h2>
-          @Model.Body
+          @Html.Raw(bodyText)
         </div>
       </div>
     </div>
