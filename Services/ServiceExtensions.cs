@@ -7,6 +7,7 @@ namespace Weblog.Services
         public static void AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<IPostIndexer>(provider => new PostIndexer());
+            services.AddScoped<IPostSearcher>(provider => new PostSearcher());
         }
     }
 }
