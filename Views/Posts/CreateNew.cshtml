@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h2>Create new post</h2>
+          <form action="/Admin/Posts" method="POST">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" name="title">
+            </div>
+            <div class="form-group">
+              <label for="body">Body</label>
+              <div id="epiceditor">
+                <textarea name="body" id="" style="max-width: 100%;" cols="30" rows="10" class="form-control"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="/bower_components/epiceditor/epiceditor/js/epiceditor.js"></script>
+<script type="text/javascript">
+var options = {
+  theme: {
+    base: 'http://localhost:9000/bower_components/epiceditor/epiceditor/themes/base/epiceditor.css',
+    preview: 'http://localhost:9000/bower_components/epiceditor/epiceditor/themes/preview/github.css',
+    editor: 'http://localhost:9000/bower_components/epiceditor/epiceditor/themes/editor/epic-light.css'
+  }
+}
+var editor = new EpicEditor(options).load();
+</script>

@@ -1,3 +1,4 @@
+@using System;
 @model Weblog.Models.PagedResult<Weblog.Models.Post>
 <div class="container">
   @foreach(var post in Model.Items) {
@@ -8,7 +9,10 @@
         <div class="panel-body">
           <h2 class="panel-title">@post.Title</h2>
           <p>
-            @post.Body
+            @Html.Raw(post.Body.Substring(0,Math.Min(post.Body.Length,250)))
+            @if(post.Body.Length > 250) {
+              <text>...</text>
+            }
           </p>
           <p class="small">
             <span>Published:</span>

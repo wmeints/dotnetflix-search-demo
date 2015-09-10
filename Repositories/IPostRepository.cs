@@ -10,5 +10,6 @@ namespace Weblog.Repositories
         Task<Post> FindByAliasAsync(string alias);
         Task<Post> FindByIdAsync(ObjectId identifier);
         Task<PagedResult<Post>> FindAll(int pageIndex);
+        Task<Post> InsertAsync(Post newPost);
     }
 }
